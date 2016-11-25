@@ -51,9 +51,10 @@ class PurchaseViewController: UIViewController, ViewControllerRootView, AlertVie
     }
     
     func addTextFieldDelegate<T: UITextFieldDelegate>(delegate: T) {
-        rootView.goodsNameText.delegate = delegate;
-        rootView.goodsQuantityText.delegate = delegate;
-        rootView.goodsPriceText.delegate = delegate;
+        let view = rootView
+        view.goodsNameText.delegate = delegate;
+        view.goodsQuantityText.delegate = delegate;
+        view.goodsPriceText.delegate = delegate;
     }
     
     func checkCharacterValues(textField: UITextField) -> Bool {
