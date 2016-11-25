@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		CF1C43741DE6CA380055FD58 /* ShoppingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF1C43721DE6CA380055FD58 /* ShoppingList.xcdatamodeld */; };
 		CF1C43861DE6DB200055FD58 /* PuchasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1C43851DE6DB200055FD58 /* PuchasesList.swift */; };
-		CF52A9431DE5AD60001F812E /* MagicalRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF52A9421DE5AD60001F812E /* MagicalRecord.framework */; };
 		CF9DB5181DE81D780028D090 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB5171DE81D780028D090 /* AlertViewController.swift */; };
 		CF9DB51B1DE8273D0028D090 /* Purchase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB5191DE8273D0028D090 /* Purchase+CoreDataProperties.swift */; };
 		CF9DB51C1DE8273D0028D090 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB51A1DE8273D0028D090 /* Purchase.swift */; };
-		CFCBCEAB1DE5B05C000B6526 /* MagicalRecord.framework in Headers */ = {isa = PBXBuildFile; fileRef = CF52A9421DE5AD60001F812E /* MagicalRecord.framework */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFF9CA131DE45180009CFF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA121DE45180009CFF4D /* AppDelegate.swift */; };
 		CFF9CA1A1DE45180009CFF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF9CA191DE45180009CFF4D /* Assets.xcassets */; };
 		CFF9CA1D1DE45180009CFF4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF9CA1B1DE45180009CFF4D /* LaunchScreen.storyboard */; };
@@ -68,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF52A9431DE5AD60001F812E /* MagicalRecord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +239,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFCBCEAB1DE5B05C000B6526 /* MagicalRecord.framework in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
