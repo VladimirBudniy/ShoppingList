@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShoppingListViewController" customModule="ShoppingList" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="ShoppingListView" customModule="ShoppingList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundView" translatesAutoresizingMaskIntoConstraints="NO" id="IVA-oU-Efo">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="upz-FW-bky">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="6l4-Ph-cA0"/>
+                        <outlet property="delegate" destination="-1" id="avo-kb-64Q"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="IVA-oU-Efo" secondAttribute="bottom" id="8WM-Hf-g6t"/>
+                <constraint firstItem="upz-FW-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ET9-x2-QIz"/>
+                <constraint firstItem="IVA-oU-Efo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LkV-NE-mvk"/>
+                <constraint firstAttribute="trailing" secondItem="IVA-oU-Efo" secondAttribute="trailing" id="ViR-Hu-Abl"/>
+                <constraint firstAttribute="bottom" secondItem="upz-FW-bky" secondAttribute="bottom" id="Y1l-GV-rQk"/>
+                <constraint firstItem="IVA-oU-Efo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="aCl-3l-EoM"/>
+                <constraint firstItem="upz-FW-bky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="b0m-Vd-0Li"/>
+                <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="epZ-9B-Z9c"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="tabelView" destination="upz-FW-bky" id="7Qp-JT-sb8"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroundView" width="375" height="667"/>
+    </resources>
+</document>
