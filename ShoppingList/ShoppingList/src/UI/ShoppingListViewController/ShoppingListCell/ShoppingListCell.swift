@@ -27,8 +27,9 @@ class ShoppingListCell: UITableViewCell {
     // MARK: - Public
     
     internal func fillWithObject(object: Purchase) {
-        goodsLabel.text = object.name
-        quantityLabel.text = object.quantity?.stringValue
-        priceLabel.text = object.price?.stringValue
+        let currentObject = object
+        self.goodsLabel.text = currentObject.name
+        self.quantityLabel.text = currentObject.quantity?.stringValue
+        self.priceLabel.text = currentObject.price?.stringValue
     }
 }

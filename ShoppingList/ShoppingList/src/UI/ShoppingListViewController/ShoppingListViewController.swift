@@ -23,12 +23,15 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.registerNib(UINib(nibName: ShoppingListCell.className(), bundle: nil),
+                                            forCellReuseIdentifier: ShoppingListCell.className())
+        self.addBarButtons()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.addBarButtons()
-        
+
         self.tableView.editing = false
         self.tableView.reloadData()
     }
@@ -39,14 +42,19 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     
     // MARK: - Private
     
-    func addBarButtons() {
-        navigationItem.rightButtonSystemItem(.Add, target: self, action: #selector(ShoppingListViewController.purchaseViewController))
-        navigationItem.leftButtonСorrectionItems(self, actionEdit: #selector(ShoppingListViewController.startEditing), actionRemoveAll: #selector(ShoppingListViewController.removeAllObjects))
+    private func addBarButtons() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Add,
+                                                                      target: self,
+                                                                      action: #selector(ShoppingListViewController.purchaseViewController))
+        
+        self.navigationItem.leftButtonСorrectionItems(self,
+                                                       actionEdit: #selector(ShoppingListViewController.startEditing),
+                                                       actionRemoveAll: #selector(ShoppingListViewController.removeAllObjects))
     }
     
     func purchaseViewController() {
-        let viewController = PurchaseViewController.controllerFromNib()
-        navigationController?.pushViewController(viewController as! PurchaseViewController, animated: true)
+        let viewController = PurchaseViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func startEditing() {
@@ -54,7 +62,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     }
     
     func removeAllObjects() {
-        removeAllObjectsFromDatabase()
+        removeAllObjectsFromDatabase() //////&?????????????????????????????????????
         self.tableView.reloadData()
     }
     
@@ -65,7 +73,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellFromNibWithClass(ShoppingListCell) as! ShoppingListCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(ShoppingListCell.className()) as! ShoppingListCell
         cell.fillWithObject(puchasesList[indexPath.row] as! Purchase)
         
         return cell
@@ -77,10 +85,12 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            removeObjectFromDatabaseAtIndex(indexPath.row)
+            
+            
+            
+            removeObjectFromDatabaseAtIndex(indexPath.row) //////&?????????????????????????????????????
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Middle)
         }
-        
-        tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {

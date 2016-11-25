@@ -9,7 +9,7 @@
 import UIKit
 import MagicalRecord
 
-class PurchaseViewController: UIViewController, ViewControllerRootView, AlertViewController, UITextFieldDelegate {
+class PurchaseViewController: UIViewController, AlertViewController, ViewControllerRootView, UITextFieldDelegate {
     
     // MARK: - Accessors
     
@@ -20,7 +20,7 @@ class PurchaseViewController: UIViewController, ViewControllerRootView, AlertVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addTextFieldDelegate(self)
+        self.addTextFieldDelegate()
         rootView.customButtonView()
     }
     
@@ -32,35 +32,41 @@ class PurchaseViewController: UIViewController, ViewControllerRootView, AlertVie
     
     @IBAction func addObject(sender: AnyObject) {
         saveObject()
-//        presentViewController(alertViewController, animated: true, completion: nil)
     }
     
     // MARK: - Private
     
-    func saveObject() {
-        let purchase = Purchase.MR_createEntity()
-        MagicalRecord.saveWithBlock( {_ in self.fillWithPurchase(purchase!)} ) // !!!!!!!!!!!!!!!!!!!!!!!!!!
-        navigationController?.popViewControllerAnimated(true)
+    private func saveObject() {
+        let currentView = self.rootView
+        
+        MagicalRecord.saveWithBlock({ localContext in
+            let purchase = Purchase.MR_createEntityInContext(localContext)!
+            
+            purchase.name = currentView.goodsNameText.text
+            purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
+            purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
+            purchase.date = NSDate.init()
+            }, completion: {(success, error) in
+                if success {
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+                
+                if (error != nil) {
+                    self.presentViewController(self.alertViewController, animated: true, completion: nil)
+                }
+        })
     }
     
-    func fillWithPurchase(purchase: Purchase) {
-        purchase.name = rootView.goodsNameText.text
-        purchase.quantity = ((rootView.goodsQuantityText.text!) as NSString).floatValue
-        purchase.price = ((rootView.goodsPriceText.text!) as NSString).floatValue
-        purchase.date = NSDate.init()
-    }
-    
-    func addTextFieldDelegate<T: UITextFieldDelegate>(delegate: T) {
+    private func addTextFieldDelegate() {
         let view = rootView
-        view.goodsNameText.delegate = delegate;
-        view.goodsQuantityText.delegate = delegate;
-        view.goodsPriceText.delegate = delegate;
+        view.goodsNameText.delegate = self;
+        view.goodsQuantityText.delegate = self;
+        view.goodsPriceText.delegate = self;
     }
     
-    func checkCharacterValues(textField: UITextField) -> Bool {
+    private func checkCharacterValues(textField: UITextField) -> Bool {
         let numbersOnly = NSCharacterSet(charactersInString:".0123456789")
         let characterSetFromTextField = NSCharacterSet(charactersInString:textField.text!)
-        
         let bool = numbersOnly.isSupersetOfSet(characterSetFromTextField)
         
         if bool == false {

@@ -12,6 +12,7 @@
 		CF9DB5181DE81D780028D090 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB5171DE81D780028D090 /* AlertViewController.swift */; };
 		CF9DB51B1DE8273D0028D090 /* Purchase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB5191DE8273D0028D090 /* Purchase+CoreDataProperties.swift */; };
 		CF9DB51C1DE8273D0028D090 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB51A1DE8273D0028D090 /* Purchase.swift */; };
+		CFBE1E971DE87AB4006DC63A /* NSObject+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBE1E961DE87AB4006DC63A /* NSObject+Category.swift */; };
 		CFF9CA131DE45180009CFF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA121DE45180009CFF4D /* AppDelegate.swift */; };
 		CFF9CA1A1DE45180009CFF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF9CA191DE45180009CFF4D /* Assets.xcassets */; };
 		CFF9CA1D1DE45180009CFF4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFF9CA1B1DE45180009CFF4D /* LaunchScreen.storyboard */; };
@@ -20,10 +21,7 @@
 		CFF9CA311DE452A1009CFF4D /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA301DE452A1009CFF4D /* ShoppingListView.swift */; };
 		CFF9CA351DE452FE009CFF4D /* ShoppingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA331DE452FE009CFF4D /* ShoppingListCell.swift */; };
 		CFF9CA361DE452FE009CFF4D /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9CA341DE452FE009CFF4D /* ShoppingListCell.xib */; };
-		CFF9CA4F1DE454CB009CFF4D /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA481DE454CB009CFF4D /* String+Category.swift */; };
-		CFF9CA501DE454CB009CFF4D /* UITableView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA491DE454CB009CFF4D /* UITableView+Category.swift */; };
 		CFF9CA511DE454CB009CFF4D /* UIView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA4A1DE454CB009CFF4D /* UIView+Category.swift */; };
-		CFF9CA521DE454CB009CFF4D /* UIViewController+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA4B1DE454CB009CFF4D /* UIViewController+Category.swift */; };
 		CFF9CA531DE454CB009CFF4D /* UIWindow+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA4C1DE454CB009CFF4D /* UIWindow+Category.swift */; };
 		CFF9CA541DE454CB009CFF4D /* ViewControllerRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA4E1DE454CB009CFF4D /* ViewControllerRootView.swift */; };
 		CFF9CA591DE45593009CFF4D /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9CA571DE45593009CFF4D /* PurchaseViewController.swift */; };
@@ -39,6 +37,7 @@
 		CF9DB5171DE81D780028D090 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		CF9DB5191DE8273D0028D090 /* Purchase+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Purchase+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CF9DB51A1DE8273D0028D090 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		CFBE1E961DE87AB4006DC63A /* NSObject+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Category.swift"; sourceTree = "<group>"; };
 		CFF9CA0F1DE45180009CFF4D /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFF9CA121DE45180009CFF4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFF9CA191DE45180009CFF4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,10 +48,7 @@
 		CFF9CA301DE452A1009CFF4D /* ShoppingListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		CFF9CA331DE452FE009CFF4D /* ShoppingListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListCell.swift; sourceTree = "<group>"; };
 		CFF9CA341DE452FE009CFF4D /* ShoppingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
-		CFF9CA481DE454CB009CFF4D /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
-		CFF9CA491DE454CB009CFF4D /* UITableView+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Category.swift"; sourceTree = "<group>"; };
 		CFF9CA4A1DE454CB009CFF4D /* UIView+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Category.swift"; sourceTree = "<group>"; };
-		CFF9CA4B1DE454CB009CFF4D /* UIViewController+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Category.swift"; sourceTree = "<group>"; };
 		CFF9CA4C1DE454CB009CFF4D /* UIWindow+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Category.swift"; sourceTree = "<group>"; };
 		CFF9CA4E1DE454CB009CFF4D /* ViewControllerRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerRootView.swift; sourceTree = "<group>"; };
 		CFF9CA571DE45593009CFF4D /* PurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
@@ -194,12 +190,10 @@
 		CFF9CA471DE454CB009CFF4D /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				CFF9CA481DE454CB009CFF4D /* String+Category.swift */,
-				CFF9CA491DE454CB009CFF4D /* UITableView+Category.swift */,
 				CFF9CA4A1DE454CB009CFF4D /* UIView+Category.swift */,
-				CFF9CA4B1DE454CB009CFF4D /* UIViewController+Category.swift */,
 				CFF9CA4C1DE454CB009CFF4D /* UIWindow+Category.swift */,
 				CFF9CA671DE49095009CFF4D /* UINavigationItem+Category.swift */,
+				CFBE1E961DE87AB4006DC63A /* NSObject+Category.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -336,11 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFF9CA591DE45593009CFF4D /* PurchaseViewController.swift in Sources */,
-				CFF9CA521DE454CB009CFF4D /* UIViewController+Category.swift in Sources */,
 				CF9DB51C1DE8273D0028D090 /* Purchase.swift in Sources */,
 				CFF9CA531DE454CB009CFF4D /* UIWindow+Category.swift in Sources */,
 				CFF9CA681DE49095009CFF4D /* UINavigationItem+Category.swift in Sources */,
 				CFF9CA5C1DE455AE009CFF4D /* PurchaseView.swift in Sources */,
+				CFBE1E971DE87AB4006DC63A /* NSObject+Category.swift in Sources */,
 				CF1C43741DE6CA380055FD58 /* ShoppingList.xcdatamodeld in Sources */,
 				CFF9CA311DE452A1009CFF4D /* ShoppingListView.swift in Sources */,
 				CFF9CA541DE454CB009CFF4D /* ViewControllerRootView.swift in Sources */,
@@ -348,10 +342,8 @@
 				CFF9CA351DE452FE009CFF4D /* ShoppingListCell.swift in Sources */,
 				CFF9CA511DE454CB009CFF4D /* UIView+Category.swift in Sources */,
 				CF9DB5181DE81D780028D090 /* AlertViewController.swift in Sources */,
-				CFF9CA4F1DE454CB009CFF4D /* String+Category.swift in Sources */,
 				CFF9CA2C1DE45263009CFF4D /* ShoppingListViewController.swift in Sources */,
 				CFF9CA131DE45180009CFF4D /* AppDelegate.swift in Sources */,
-				CFF9CA501DE454CB009CFF4D /* UITableView+Category.swift in Sources */,
 				CF9DB51B1DE8273D0028D090 /* Purchase+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

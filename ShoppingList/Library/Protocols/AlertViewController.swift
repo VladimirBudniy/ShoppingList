@@ -17,7 +17,7 @@ extension AlertViewController {
     
     var alertViewController: UIAlertController {
         let alertView = self.alertViewControllerWith(nil,
-            message: "Are you sure that want to save a purchase?",
+            message: "Data is not saved!",
             preferredStyle: UIAlertControllerStyle.Alert,
             actionTitle: "Yes",
             style: UIAlertActionStyle.Default,

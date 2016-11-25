@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.setupCoreDataStackWithStoreNamed("ShoppingList")
         let window = UIWindow.window()
         let navigationController = UINavigationController()
-        let viewController = ShoppingListViewController.controllerFromNib()
+        let viewController = ShoppingListViewController()
         
-        navigationController.pushViewController(viewController as! ShoppingListViewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
         window.rootViewController = navigationController
         
         self.window = window

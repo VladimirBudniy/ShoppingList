@@ -17,10 +17,6 @@ class PurchaseView: UIView {
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     
-    private func changeToPoint(string: String) -> NSString {
-        return (string.replace(",", withString: ".")) as NSString
-    }
-    
     func customButtonView() {
         self.buttonView.roundCorners(5, borderColor: UIColor.blackColor(), borderWidth: 1)
     }
