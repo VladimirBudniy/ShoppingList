@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PurchaseViewController" customModule="ShoppingList" customModuleProvider="target">
@@ -49,18 +53,18 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn0-3o-Khd">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
-                            <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <size key="titleShadowOffset" width="3" height="3"/>
                             <state key="normal" title="Add to store">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="addObject:" destination="-1" eventType="touchUpInside" id="afm-GP-TeK"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Gn0-3o-Khd" firstAttribute="leading" secondItem="2hE-g4-8ee" secondAttribute="leading" id="fM1-oZ-fx6"/>
                         <constraint firstItem="Gn0-3o-Khd" firstAttribute="top" secondItem="2hE-g4-8ee" secondAttribute="top" id="i87-qw-ELB"/>
@@ -70,7 +74,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fbI-cC-9Rn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="4bW-MS-iaR"/>
                 <constraint firstAttribute="trailing" secondItem="vOZ-33-wqA" secondAttribute="trailing" constant="8" id="4vd-tV-IoB"/>
@@ -89,7 +93,6 @@
                 <constraint firstAttribute="trailing" secondItem="2hE-g4-8ee" secondAttribute="trailing" constant="110" id="qTG-QT-108"/>
                 <constraint firstAttribute="trailing" secondItem="yz0-0y-kWJ" secondAttribute="trailing" id="qyi-Ek-BIx"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="buttonView" destination="2hE-g4-8ee" id="uAB-SE-wzE"/>
                 <outlet property="goodsNameText" destination="fbI-cC-9Rn" id="DKG-rH-mwc"/>
@@ -97,7 +100,7 @@
                 <outlet property="goodsQuantityText" destination="vOZ-33-wqA" id="LK7-dC-JjO"/>
                 <outlet property="saveButton" destination="Gn0-3o-Khd" id="WkG-7T-wJ1"/>
             </connections>
-            <point key="canvasLocation" x="411" y="371"/>
+            <point key="canvasLocation" x="-116" y="60"/>
         </view>
     </objects>
     <resources>

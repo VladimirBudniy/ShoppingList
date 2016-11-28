@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-protocol AlertViewController {
+public protocol AlertViewController {
     var alertViewController: UIAlertController { get }
 }
 
-extension AlertViewController {
+public extension AlertViewController {
     
     var alertViewController: UIAlertController {
         let alertView = self.alertViewControllerWith(nil,

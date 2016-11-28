@@ -21,4 +21,9 @@ class PurchaseView: UIView {
         self.buttonView.roundCorners(5, borderColor: UIColor.blackColor(), borderWidth: 1)
     }
     
+    func fillFields(purchase: Purchase?) {
+        self.goodsNameText.text = purchase!.name
+        self.goodsQuantityText.text = purchase!.quantity?.stringValue
+        self.goodsPriceText.text = purchase!.price?.stringValue
+    }
 }

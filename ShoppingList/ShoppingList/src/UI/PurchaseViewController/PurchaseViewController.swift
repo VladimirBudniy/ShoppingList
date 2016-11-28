@@ -12,8 +12,26 @@ import MagicalRecord
 class PurchaseViewController: UIViewController, AlertViewController, ViewControllerRootView, UITextFieldDelegate {
     
     // MARK: - Accessors
+    var purchase: Purchase?
     
     typealias RootViewType = PurchaseView
+    
+    var shoppingList: NSArray {
+        get {
+            return Purchase.MR_findAllSortedBy("date", ascending: true)!
+        }
+    }
+    
+    // MARK: - Initialization
+
+    init(purchase: Purchase?) {
+        self.purchase = purchase
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View LifeCycle
     
@@ -22,6 +40,12 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
         
         self.addTextFieldDelegate()
         rootView.customButtonView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.rootView.fillFields(self.purchase)
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,6 +64,27 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
         let currentView = self.rootView
         
         MagicalRecord.saveWithBlock({ localContext in
+            
+            for purchase in self.shoppingList {
+                if purchase.date == self.purchase?.date {
+                    purchase.name = currentView.goodsNameText.text
+                    purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
+                    purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
+                    
+                    
+                    
+                    
+                    
+                }
+            }
+            
+            
+            
+            
+            
+            
+            
+            
             let purchase = Purchase.MR_createEntityInContext(localContext)!
             
             purchase.name = currentView.goodsNameText.text

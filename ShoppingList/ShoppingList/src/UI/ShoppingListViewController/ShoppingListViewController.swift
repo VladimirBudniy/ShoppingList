@@ -9,11 +9,17 @@
 import UIKit
 import MagicalRecord
 
-class ShoppingListViewController: UIViewController, ViewControllerRootView, PuchasesList, UITableViewDataSource, UITableViewDelegate {
+class ShoppingListViewController: UIViewController, ViewControllerRootView, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Accessors
     
     typealias RootViewType = ShoppingListView
+    
+    var shoppingList: NSArray {
+        get {
+            return Purchase.MR_findAllSortedBy("date", ascending: true)!
+        }
+    }
     
     var tableView: UITableView {
         return self.rootView.tabelView
@@ -24,8 +30,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.registerNib(UINib(nibName: ShoppingListCell.className(), bundle: nil),
-                                            forCellReuseIdentifier: ShoppingListCell.className())
+        self.registerCellWithIdentifier(ShoppingListCell.className())
         self.addBarButtons()
     }
     
@@ -42,6 +47,12 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     
     // MARK: - Private
     
+    private func registerCellWithIdentifier(identifier: String) {
+        self.tableView.registerNib(UINib(nibName: identifier, bundle: nil),
+                                   forCellReuseIdentifier: identifier)
+    }
+    
+    
     private func addBarButtons() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Add,
                                                                       target: self,
@@ -53,7 +64,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     }
     
     func purchaseViewController() {
-        let viewController = PurchaseViewController()
+        let viewController = PurchaseViewController(purchase: nil)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -62,19 +73,31 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     }
     
     func removeAllObjects() {
-        removeAllObjectsFromDatabase() //////&?????????????????????????????????????
-        self.tableView.reloadData()
+        MagicalRecord.saveWithBlock({context in
+            for Purchase in self.shoppingList {
+                Purchase.MR_deleteEntityInContext(context)
+            }
+            }, completion: {(succes, error) in
+                if succes {
+                    self.tableView.reloadData()
+                }
+                
+                if (error != nil) {
+                    print(ErrorType)
+                }
+        })
     }
     
     // MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return puchasesList.count
+        return self.shoppingList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ShoppingListCell.className()) as! ShoppingListCell
-        cell.fillWithObject(puchasesList[indexPath.row] as! Purchase)
+        let object = self.shoppingList[indexPath.row] as! Purchase
+        cell.fillWithObject(object)
         
         return cell
     }
@@ -85,11 +108,14 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            
-            
-            
-            removeObjectFromDatabaseAtIndex(indexPath.row) //////&?????????????????????????????????????
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Middle)
+            MagicalRecord.saveWithBlock({ context in
+                let purchase = self.shoppingList[indexPath.row]
+                purchase.MR_deleteEntityInContext(context)
+                }, completion: { (succes, error) in
+                    if succes == true {
+                        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Middle)
+                    }
+            })
         }
     }
     
@@ -101,5 +127,9 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, Puch
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        let viewController = PurchaseViewController.init(purchase: self.shoppingList[indexPath.row] as? Purchase)
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

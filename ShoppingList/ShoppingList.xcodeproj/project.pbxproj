@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CF1C43741DE6CA380055FD58 /* ShoppingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF1C43721DE6CA380055FD58 /* ShoppingList.xcdatamodeld */; };
-		CF1C43861DE6DB200055FD58 /* PuchasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1C43851DE6DB200055FD58 /* PuchasesList.swift */; };
 		CF9DB5181DE81D780028D090 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB5171DE81D780028D090 /* AlertViewController.swift */; };
 		CF9DB51B1DE8273D0028D090 /* Purchase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB5191DE8273D0028D090 /* Purchase+CoreDataProperties.swift */; };
 		CF9DB51C1DE8273D0028D090 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9DB51A1DE8273D0028D090 /* Purchase.swift */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		CF1C43731DE6CA380055FD58 /* ShoppingList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingList.xcdatamodel; sourceTree = "<group>"; };
-		CF1C43851DE6DB200055FD58 /* PuchasesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuchasesList.swift; sourceTree = "<group>"; };
 		CF52A9421DE5AD60001F812E /* MagicalRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MagicalRecord.framework; path = ../Carthage/Build/iOS/MagicalRecord.framework; sourceTree = "<group>"; };
 		CF9DB5171DE81D780028D090 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		CF9DB5191DE8273D0028D090 /* Purchase+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Purchase+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 		CFF9CA4D1DE454CB009CFF4D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF1C43851DE6DB200055FD58 /* PuchasesList.swift */,
 				CFF9CA4E1DE454CB009CFF4D /* ViewControllerRootView.swift */,
 				CF9DB5171DE81D780028D090 /* AlertViewController.swift */,
 			);
@@ -338,7 +335,6 @@
 				CF1C43741DE6CA380055FD58 /* ShoppingList.xcdatamodeld in Sources */,
 				CFF9CA311DE452A1009CFF4D /* ShoppingListView.swift in Sources */,
 				CFF9CA541DE454CB009CFF4D /* ViewControllerRootView.swift in Sources */,
-				CF1C43861DE6DB200055FD58 /* PuchasesList.swift in Sources */,
 				CFF9CA351DE452FE009CFF4D /* ShoppingListCell.swift in Sources */,
 				CFF9CA511DE454CB009CFF4D /* UIView+Category.swift in Sources */,
 				CF9DB5181DE81D780028D090 /* AlertViewController.swift in Sources */,
