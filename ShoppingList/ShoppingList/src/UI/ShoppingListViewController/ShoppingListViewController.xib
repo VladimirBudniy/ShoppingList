@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShoppingListViewController" customModule="ShoppingList" customModuleProvider="target">
@@ -15,33 +19,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundView" translatesAutoresizingMaskIntoConstraints="NO" id="IVA-oU-Efo">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="upz-FW-bky">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="6l4-Ph-cA0"/>
                         <outlet property="delegate" destination="-1" id="avo-kb-64Q"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="IVA-oU-Efo" secondAttribute="bottom" id="8WM-Hf-g6t"/>
-                <constraint firstItem="upz-FW-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ET9-x2-QIz"/>
-                <constraint firstItem="IVA-oU-Efo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LkV-NE-mvk"/>
-                <constraint firstAttribute="trailing" secondItem="IVA-oU-Efo" secondAttribute="trailing" id="ViR-Hu-Abl"/>
-                <constraint firstAttribute="bottom" secondItem="upz-FW-bky" secondAttribute="bottom" id="Y1l-GV-rQk"/>
-                <constraint firstItem="IVA-oU-Efo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="aCl-3l-EoM"/>
-                <constraint firstItem="upz-FW-bky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="b0m-Vd-0Li"/>
-                <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="epZ-9B-Z9c"/>
+                <constraint firstItem="IVA-oU-Efo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2xo-8a-Ykf"/>
+                <constraint firstItem="IVA-oU-Efo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GKE-sY-8Ib"/>
+                <constraint firstItem="upz-FW-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WWM-cO-EwJ"/>
+                <constraint firstItem="upz-FW-bky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ya5-rb-n2d"/>
+                <constraint firstAttribute="bottom" secondItem="upz-FW-bky" secondAttribute="bottom" id="aOp-bf-AMw"/>
+                <constraint firstAttribute="bottom" secondItem="IVA-oU-Efo" secondAttribute="bottom" id="nbe-rU-P3a"/>
+                <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="swS-ri-pKt"/>
+                <constraint firstAttribute="trailing" secondItem="IVA-oU-Efo" secondAttribute="trailing" id="v2P-wB-B4Z"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="tabelView" destination="upz-FW-bky" id="7Qp-JT-sb8"/>
             </connections>
+            <point key="canvasLocation" x="-198" y="-166"/>
         </view>
     </objects>
     <resources>

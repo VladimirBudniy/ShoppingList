@@ -18,7 +18,7 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     
     var shoppingList: NSArray {
         get {
-            return Purchase.MR_findAllSortedBy("date", ascending: true)!
+            return Purchase.MR_findAllSortedBy("date", ascending: true)! as! [Purchase]
         }
     }
     
@@ -38,14 +38,17 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.edgesForExtendedLayout = UIRectEdge.None
         self.addTextFieldDelegate()
-        rootView.customButtonView()
+        self.rootView.customButtonView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.rootView.fillFields(self.purchase)
+        if self.purchase != nil {
+            self.rootView.fillFields(self.purchase)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +58,7 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     // MARK: - Action
     
     @IBAction func addObject(sender: AnyObject) {
-        saveObject()
+        self.saveObject()
     }
     
     // MARK: - Private
@@ -63,34 +66,35 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     private func saveObject() {
         let currentView = self.rootView
         
-        MagicalRecord.saveWithBlock({ localContext in
+        MagicalRecord.saveWithBlock({ context in
             
-            for purchase in self.shoppingList {
-                if purchase.date == self.purchase?.date {
-                    purchase.name = currentView.goodsNameText.text
-                    purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
-                    purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
-                    
-                    
-                    
-                    
-                    
+// ??????????????
+//            let date = self.purchase?.date
+//            if date == nil {
+//                let purchase = Purchase.MR_createEntityInContext(context)!
+//                purchase.name = currentView.goodsNameText.text
+//                purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
+//                purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
+//                purchase.date = NSDate()
+//            } else {
+//                let object = Purchase.MR_findFirstByAttribute("date", withValue: date!)
+//                if object != nil {
+//                    object!.name = currentView.goodsNameText.text
+//                    object!.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
+//                    object!.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
+//                }
+//            }
+            
+            for object in self.shoppingList {
+                if object.date == self.purchase?.date {
+                    object.MR_deleteEntityInContext(context)
                 }
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            let purchase = Purchase.MR_createEntityInContext(localContext)!
-            
+            let purchase = Purchase.MR_createEntityInContext(context)!
             purchase.name = currentView.goodsNameText.text
             purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
             purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
-            purchase.date = NSDate.init()
+            purchase.date = NSDate()
             }, completion: {(success, error) in
                 if success {
                     self.navigationController?.popViewControllerAnimated(true)
@@ -103,7 +107,7 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     }
     
     private func addTextFieldDelegate() {
-        let view = rootView
+        let view = self.rootView
         view.goodsNameText.delegate = self;
         view.goodsQuantityText.delegate = self;
         view.goodsPriceText.delegate = self;
@@ -121,7 +125,7 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
                 actionTitle: "Ok",
                 style: UIAlertActionStyle.Default,
                 handler: nil)
-            presentViewController(alertController, animated: true, completion: nil)
+            self.presentViewController(alertController, animated: true, completion: nil)
             textField.text = ""
         }
         
@@ -132,19 +136,19 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         switch textField {
-        case let textField where textField == rootView.goodsNameText:
-            rootView.goodsQuantityText.becomeFirstResponder()
+        case let textField where textField == self.rootView.goodsNameText:
+            self.rootView.goodsQuantityText.becomeFirstResponder()
             return true
             
-        case let textField where textField == rootView.goodsQuantityText:
+        case let textField where textField == self.rootView.goodsQuantityText:
             checkCharacterValues(textField)
-            rootView.goodsPriceText.becomeFirstResponder()
+            self.rootView.goodsPriceText.becomeFirstResponder()
             
             return true
             
-        case let textField where textField == rootView.goodsPriceText:
+        case let textField where textField == self.rootView.goodsPriceText:
             checkCharacterValues(textField)
-            return !rootView.goodsPriceText.endEditing(true)
+            return self.rootView.goodsPriceText.endEditing(true)
             
         default:
             return true
@@ -153,14 +157,14 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         switch textField {
-        case let textField where textField == rootView.goodsNameText:
+        case let textField where textField == self.rootView.goodsNameText:
             return true
             
-        case let textField where textField == rootView.goodsQuantityText:
-            return checkCharacterValues(textField)
+        case let textField where textField == self.rootView.goodsQuantityText:
+            return self.checkCharacterValues(textField)
 
-        case let textField where textField == rootView.goodsPriceText:
-            return checkCharacterValues(textField)
+        case let textField where textField == self.rootView.goodsPriceText:
+            return self.checkCharacterValues(textField)
             
         default:
             return true

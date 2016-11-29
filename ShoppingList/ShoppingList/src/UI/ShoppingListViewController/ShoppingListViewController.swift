@@ -31,6 +31,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
         super.viewDidLoad()
         
         self.registerCellWithIdentifier(ShoppingListCell.className())
+        self.edgesForExtendedLayout = UIRectEdge.None
         self.addBarButtons()
     }
     
@@ -65,7 +66,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     
     func purchaseViewController() {
         let viewController = PurchaseViewController(purchase: nil)
-        navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func startEditing() {
@@ -127,9 +128,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        
         let viewController = PurchaseViewController.init(purchase: self.shoppingList[indexPath.row] as? Purchase)
-        
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
