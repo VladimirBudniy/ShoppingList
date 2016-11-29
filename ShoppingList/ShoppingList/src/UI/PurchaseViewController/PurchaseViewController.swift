@@ -75,8 +75,8 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
                 purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
                 purchase.date = NSDate()
             } else {
-                let object = Purchase.MR_findFirstByAttribute("date", withValue: date!)
-                let localPurchase = object?.MR_inContext(context)
+                let purchase = Purchase.MR_findFirstByAttribute("date", withValue: date!)
+                let localPurchase = purchase?.MR_inContext(context)
                 if localPurchase != nil {
                     localPurchase!.name = currentView.goodsNameText.text
                     localPurchase!.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
