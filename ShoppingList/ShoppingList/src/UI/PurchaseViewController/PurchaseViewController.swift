@@ -67,34 +67,22 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
         let currentView = self.rootView
         
         MagicalRecord.saveWithBlock({ context in
-            
-// ??????????????
-//            let date = self.purchase?.date
-//            if date == nil {
-//                let purchase = Purchase.MR_createEntityInContext(context)!
-//                purchase.name = currentView.goodsNameText.text
-//                purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
-//                purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
-//                purchase.date = NSDate()
-//            } else {
-//                let object = Purchase.MR_findFirstByAttribute("date", withValue: date!)
-//                if object != nil {
-//                    object!.name = currentView.goodsNameText.text
-//                    object!.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
-//                    object!.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
-//                }
-//            }
-            
-            for object in self.shoppingList {
-                if object.date == self.purchase?.date {
-                    object.MR_deleteEntityInContext(context)
+            let date = self.purchase?.date
+            if date == nil {
+                let purchase = Purchase.MR_createEntityInContext(context)!
+                purchase.name = currentView.goodsNameText.text
+                purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
+                purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
+                purchase.date = NSDate()
+            } else {
+                let object = Purchase.MR_findFirstByAttribute("date", withValue: date!)
+                let localPurchase = object?.MR_inContext(context)
+                if localPurchase != nil {
+                    localPurchase!.name = currentView.goodsNameText.text
+                    localPurchase!.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
+                    localPurchase!.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
                 }
             }
-            let purchase = Purchase.MR_createEntityInContext(context)!
-            purchase.name = currentView.goodsNameText.text
-            purchase.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue
-            purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
-            purchase.date = NSDate()
             }, completion: {(success, error) in
                 if success {
                     self.navigationController?.popViewControllerAnimated(true)
