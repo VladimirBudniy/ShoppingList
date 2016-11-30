@@ -32,8 +32,8 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = UIRectEdge.None
         self.addTextFieldDelegate()
+        self.settingNavigationBar()
         self.rootView.customButtonView()
     }
     
@@ -56,6 +56,13 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     }
     
     // MARK: - Private
+    
+    private func settingNavigationBar() {
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.translucent = true
+    }
     
     private func saveObject() {
         let currentView = self.rootView

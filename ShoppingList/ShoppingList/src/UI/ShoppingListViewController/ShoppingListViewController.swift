@@ -25,8 +25,9 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
         super.viewDidLoad()
         
         self.registerCellWithIdentifier(ShoppingListCell.className())
-        self.edgesForExtendedLayout = UIRectEdge.None
         self.settingNavigationBar()
+        self.addBarButtons()
+        self.tableView.contentInset.top = 60 // mothod for UITableView
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,9 +44,10 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     // MARK: - Private
     
     private func settingNavigationBar() {
-        self.addBarButtons()
         let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.backgroundColor = UIColor.whiteColor()
+        navigationBar?.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.translucent = true
     }
     
     private func registerCellWithIdentifier(identifier: String) {
