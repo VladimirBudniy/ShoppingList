@@ -15,13 +15,7 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     var purchase: Purchase?
     
     typealias RootViewType = PurchaseView
-    
-    var shoppingList: NSArray {
-        get {
-            return Purchase.MR_findAllSortedBy("date", ascending: true)! as! [Purchase]
-        }
-    }
-    
+   
     // MARK: - Initialization
 
     init(purchase: Purchase?) {
@@ -66,8 +60,8 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     private func saveObject() {
         let currentView = self.rootView
         
-        MagicalRecord.saveWithBlock({ context in
-            let date = self.purchase?.date
+        MagicalRecord.saveWithBlock({ [weak self] context in
+            let date = self!.purchase?.date
             if date == nil {
                 let purchase = Purchase.MR_createEntityInContext(context)!
                 purchase.name = currentView.goodsNameText.text
@@ -75,8 +69,7 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
                 purchase.price = ((currentView.goodsPriceText.text!) as NSString).floatValue
                 purchase.date = NSDate()
             } else {
-                let purchase = Purchase.MR_findFirstByAttribute("date", withValue: date!)
-                let localPurchase = purchase?.MR_inContext(context)
+                let localPurchase = Purchase.MR_findFirstByAttribute("date", withValue: date!, inContext: context)
                 if localPurchase != nil {
                     localPurchase!.name = currentView.goodsNameText.text
                     localPurchase!.quantity = ((currentView.goodsQuantityText.text!) as NSString).floatValue

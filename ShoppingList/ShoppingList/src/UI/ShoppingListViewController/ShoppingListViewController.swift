@@ -15,12 +15,6 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     
     typealias RootViewType = ShoppingListView
     
-    var shoppingList: NSArray {
-        get {
-            return Purchase.MR_findAllSortedBy("date", ascending: true)!
-        }
-    }
-    
     var tableView: UITableView {
         return self.rootView.tabelView
     }
@@ -32,7 +26,7 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
         
         self.registerCellWithIdentifier(ShoppingListCell.className())
         self.edgesForExtendedLayout = UIRectEdge.None
-        self.addBarButtons()
+        self.settingNavigationBar()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,17 +42,21 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     
     // MARK: - Private
     
+    private func settingNavigationBar() {
+        self.addBarButtons()
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.backgroundColor = UIColor.whiteColor()
+    }
+    
     private func registerCellWithIdentifier(identifier: String) {
         self.tableView.registerNib(UINib(nibName: identifier, bundle: nil),
                                    forCellReuseIdentifier: identifier)
     }
     
-    
     private func addBarButtons() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Add,
                                                                       target: self,
                                                                       action: #selector(ShoppingListViewController.purchaseViewController))
-        
         self.navigationItem.leftButtonСorrectionItems(self,
                                                        actionEdit: #selector(ShoppingListViewController.startEditing),
                                                        actionRemoveAll: #selector(ShoppingListViewController.removeAllObjects))
@@ -75,8 +73,9 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     
     func removeAllObjects() {
         MagicalRecord.saveWithBlock({context in
-            for Purchase in self.shoppingList {
-                Purchase.MR_deleteEntityInContext(context)
+            let array = Purchase.MR_findAllSortedBy("date", ascending: true, inContext: context)
+            for purchase in array! {
+                purchase.MR_deleteEntityInContext(context)
             }
             }, completion: {(succes, error) in
                 if succes {
@@ -92,25 +91,24 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     // MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.shoppingList.count
+        let array = Purchase.MR_findAllSortedBy("date", ascending: true)
+        return array!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(ShoppingListCell.className()) as! ShoppingListCell
-        let object = self.shoppingList[indexPath.row] as! Purchase
+        let array = Purchase.MR_findAllSortedBy("date", ascending: true)
+        let object = array![indexPath.row] as! Purchase
         cell.fillWithObject(object)
         
         return cell
     }
-    
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool{
-        return true
-    }
-    
+
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             MagicalRecord.saveWithBlock({ context in
-                let purchase = self.shoppingList[indexPath.row]
+                let array = Purchase.MR_findAllSortedBy("date", ascending: true, inContext: context)
+                let purchase = array![indexPath.row]
                 purchase.MR_deleteEntityInContext(context)
                 }, completion: { (succes, error) in
                     if succes == true {
@@ -128,7 +126,8 @@ class ShoppingListViewController: UIViewController, ViewControllerRootView, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        let viewController = PurchaseViewController.init(purchase: self.shoppingList[indexPath.row] as? Purchase)
+        let array = Purchase.MR_findAllSortedBy("date", ascending: true)
+        let viewController = PurchaseViewController.init(purchase: array![indexPath.row] as? Purchase)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
