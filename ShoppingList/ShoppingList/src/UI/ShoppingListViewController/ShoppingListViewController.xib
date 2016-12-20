@@ -18,12 +18,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundView" translatesAutoresizingMaskIntoConstraints="NO" id="s0M-p8-Qwv">
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundView" translatesAutoresizingMaskIntoConstraints="NO" id="IVA-oU-Efo">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="upz-FW-bky">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="6l4-Ph-cA0"/>
@@ -31,20 +31,16 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="upz-FW-bky" secondAttribute="bottom" id="4Qm-Pm-MCV"/>
-                <constraint firstItem="upz-FW-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CVI-Kk-tgm"/>
-                <constraint firstItem="s0M-p8-Qwv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GWi-RL-0I8"/>
-                <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="H5b-de-bXc"/>
-                <constraint firstItem="upz-FW-bky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R18-we-Ui0"/>
-                <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="W3O-ga-WC1"/>
-                <constraint firstItem="upz-FW-bky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aUo-pn-JwD"/>
-                <constraint firstAttribute="bottom" secondItem="upz-FW-bky" secondAttribute="bottom" id="dlf-oy-hms"/>
-                <constraint firstItem="upz-FW-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xlR-e2-yHo"/>
-                <constraint firstAttribute="trailing" secondItem="s0M-p8-Qwv" secondAttribute="trailing" id="xvX-Vg-fAQ"/>
-                <constraint firstItem="s0M-p8-Qwv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zcK-wP-jGd"/>
-                <constraint firstAttribute="bottom" secondItem="s0M-p8-Qwv" secondAttribute="bottom" id="zyn-C5-vrg"/>
+                <constraint firstItem="IVA-oU-Efo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2xo-8a-Ykf"/>
+                <constraint firstItem="IVA-oU-Efo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GKE-sY-8Ib"/>
+                <constraint firstItem="upz-FW-bky" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WWM-cO-EwJ"/>
+                <constraint firstItem="upz-FW-bky" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ya5-rb-n2d"/>
+                <constraint firstAttribute="bottom" secondItem="upz-FW-bky" secondAttribute="bottom" id="aOp-bf-AMw"/>
+                <constraint firstAttribute="bottom" secondItem="IVA-oU-Efo" secondAttribute="bottom" id="nbe-rU-P3a"/>
+                <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="swS-ri-pKt"/>
+                <constraint firstAttribute="trailing" secondItem="IVA-oU-Efo" secondAttribute="trailing" id="v2P-wB-B4Z"/>
             </constraints>
             <connections>
                 <outlet property="tabelView" destination="upz-FW-bky" id="7Qp-JT-sb8"/>
