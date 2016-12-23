@@ -31,8 +31,6 @@ class PurchaseViewController: UIViewController, AlertViewController, ViewControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.edgesForExtendedLayout = UIRectEdge.None
         self.addTextFieldDelegate()
         self.rootView.customButtonView()
     }

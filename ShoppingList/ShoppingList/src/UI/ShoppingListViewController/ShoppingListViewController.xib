@@ -42,10 +42,11 @@
                 <constraint firstAttribute="trailing" secondItem="upz-FW-bky" secondAttribute="trailing" id="swS-ri-pKt"/>
                 <constraint firstAttribute="trailing" secondItem="IVA-oU-Efo" secondAttribute="trailing" id="v2P-wB-B4Z"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
             <connections>
                 <outlet property="tabelView" destination="upz-FW-bky" id="7Qp-JT-sb8"/>
             </connections>
-            <point key="canvasLocation" x="-198" y="-166"/>
+            <point key="canvasLocation" x="-102" y="-315"/>
         </view>
     </objects>
     <resources>
